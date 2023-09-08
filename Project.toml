@@ -1,0 +1,7 @@
+name = "VectorPlotDigitizer"
+uuid = "c2bc8a40-e6d5-422b-ae2d-904269160af5"
+authors = ["pmc4 <117096890+pmc4@users.noreply.github.com> and contributors"]
+version = "0.0.1"
+
+[compat]
+julia = "1.6"
