@@ -20,7 +20,7 @@ function axis_units(x0_path, x1_path, x0_real, x1_real)
     return units
 end
 
-function calibrate_axis(l_path, l_real; is_xaxis_log = false, is_yaxis_log = false, is_yinverted = false)
+function calibrate_axis(l_path, l_real; is_xaxis_log = false, is_yaxis_log = false)
     # Read the L path coordinates by creating a temporary file
     outfile = "l_coords.txt"
     extract_svgpath(l_path, outfile)
@@ -58,7 +58,7 @@ function calibrate_axis(l_path, l_real; is_xaxis_log = false, is_yaxis_log = fal
     # Create options dictionary to be read by the transforming function
     options = Dict("xunits" => x_axis_units, "yunits" => y_axis_units,
     "xp0" => xp0, "xr0" => xr0, "yp0" => yp0, "yr0" => yr0,
-    "isxlog" => is_xaxis_log, "isylog" => is_yaxis_log, "isyinverted" => is_yinverted
+    "isxlog" => is_xaxis_log, "isylog" => is_yaxis_log
     )
     return options
 end
@@ -97,22 +97,22 @@ function extract_svgpath(input_str::AbstractString, outfile::String, options::Di
     # Delete file
     rm(tempfile)
     # Obtain units and points from options dictionary
-    xunits = opts["xunits"]
-    yunits = opts["yunits"]
-    xr0 = opts["xr0"]
-    xp0 = opts["xp0"]
-    yr0 = opts["yr0"]
-    yp0 = opts["yp0"]
+    xunits = options["xunits"]
+    yunits = options["yunits"]
+    xr0 = options["xr0"]
+    xp0 = options["xp0"]
+    yr0 = options["yr0"]
+    yp0 = options["yp0"]
     # Convert data to absolute coordinates
     data = rel2abs_coordinates(data)
     # Change path units to real units
     data[:,1] .= (data[:,1] .- xp0) .* xunits .+ xr0
     data[:,2] .= (data[:,2] .- yp0) .* yunits .+ yr0
     # If axis scale is log, we have obtained the exponents of the base 10. Exponentiate
-    if opts["isxlog"]
+    if options["isxlog"]
         data = exp10.(data[:,1])
     end
-    if opts["isylog"]
+    if options["isylog"]
         data[:,2] .= exp10.(data[:,2])
     end
     # ! The minus sign is automatically incorporated as long as the data and the L coordinates of the axis
