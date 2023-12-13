@@ -1,15 +1,9 @@
 module VectorPlotDigitizer
 
-# Write your package code here.
-export hellow_orld
+using DelimitedFiles
 
-"""
-    hellow_orld()
+export calibrate_axis, extract_svgpath
 
-This function is for testing purposes. I want to see if the package structure works.
-"""
-function hellow_orld()
-    print("Hellow, olrd!")
-end
+include("core_functions.jl")
 
-end
+end # module
