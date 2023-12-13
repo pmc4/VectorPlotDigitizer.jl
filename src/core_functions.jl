@@ -66,7 +66,7 @@ end
 
 function extract_svgpath(input_str::AbstractString, outfile::String)
     # Split string in each space
-    str_splitted = split(input_str, ' ')
+    str_splitted = split(input_str, (' ', '\n'))
 
     open(outfile, "w") do f
         case = "m" # Command m, l, h or v of the SVG path
