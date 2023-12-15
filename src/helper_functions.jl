@@ -1,7 +1,7 @@
 """
     binedges_to_bin_midpoints(data; zero_threshold::Real = 0.0, atol::Real= 0.0)
 
-Transforms a set of points that delimit the vertexes of a binned plot into a set of points
+Transforms a set of points that delimits the vertexes of a binned plot into a set of points
 for each bin mid point value.
 
 `data` must be two-column array of numbers that delimit some bin vertexes. The function will
