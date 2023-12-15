@@ -1,7 +1,7 @@
 name = "VectorPlotDigitizer"
 uuid = "c2bc8a40-e6d5-422b-ae2d-904269160af5"
 authors = ["pmc4 <117096890+pmc4@users.noreply.github.com> and contributors"]
-version = "0.1.0-alpha"
+version = "0.1.1-alpha"
 
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
