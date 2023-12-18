@@ -121,7 +121,7 @@ function fill_zeros_bins(real_xs, xs, ys, atol; zero_threshold::Real = 0.0)
     # might be too high
     number_of_zeros = count(x -> x == zero(x), real_ys)
     number_of_zeros_in_ys = count(x -> x == zero(x), ys)
-    if ! (number_of_zeros == length(real_xs) - length(ys) - number_of_zeros_in_ys)
+    if ! (number_of_zeros - number_of_zeros_in_ys == length(real_xs) - length(ys))
         warn_message = """Expected to write $(length(real_xs) - length(ys)) zeros, but $number_of_zeros were written.
         Consider increasing the value of `atol` to fix this issue."""
         @warn warn_message
