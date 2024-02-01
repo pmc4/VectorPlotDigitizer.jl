@@ -131,5 +131,5 @@ function fill_zeros_bins(real_xs, xs, ys, atol; zero_threshold::Real = 0.0)
     zero_index = real_ys .< zero_threshold
     real_ys[zero_index] .= 0.0
 
-    return return hcat(real_xs,real_ys)
+    return hcat(real_xs,real_ys)
 end
