@@ -10,7 +10,7 @@ WIP package. Documentation and tutorials will be upload it in the future, sorry 
 
 The idea of VectorPlotDigitizer is to be able to digitize the data of plots that are given in a vector format, such as SVG or PDF.
 
-To install it enter Pkg mode in a Julia terminal by writing `]` and write `add VectorPlotDigitizer` or use
+To install it enter Pkg mode in a Julia terminal by writing `]` and write `add https://github.com/pmc4/VectorPlotDigitizer.jl` or use
 
 ```julia
 using Pkg
