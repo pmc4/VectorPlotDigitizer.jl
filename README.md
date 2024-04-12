@@ -14,5 +14,5 @@ To install it enter Pkg mode in a Julia terminal by writing `]` and write `add V
 
 ```julia
 using Pkg
-Pkg.add(VectorPlotDigitizer)
+Pkg.add(https://github.com/pmc4/VectorPlotDigitizer.jl)
 ```
