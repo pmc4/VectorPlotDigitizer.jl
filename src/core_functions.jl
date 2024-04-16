@@ -110,7 +110,7 @@ function extract_svgpath(input_str::AbstractString, outfile::String, options::Di
     data[:,2] .= (data[:,2] .- yp0) .* yunits .+ yr0
     # If axis scale is log, we have obtained the exponents of the base 10. Exponentiate
     if options["isxlog"]
-        data[:,1] = exp10.(data[:,1])
+        data[:,1] .= exp10.(data[:,1])
     end
     if options["isylog"]
         data[:,2] .= exp10.(data[:,2])
