@@ -88,7 +88,7 @@ function extract_svgpath(input_str::AbstractString, outfile::String)
     end
 end
 
-function extract_svgpath(input_str::AbstractString, outfile::String, options::Dict)
+function extract_svgpath(input_str::AbstractString, outfile::String, options::Dict; header::AbstractString = "")
     # Transform svg path to txt first
     tempfile = outfile * "_tmp"
     extract_svgpath(input_str, tempfile)
@@ -120,6 +120,10 @@ function extract_svgpath(input_str::AbstractString, outfile::String, options::Di
 
     # Save file
     open(outfile, "w") do f
+        if header != ""
+            write(f, header_message)
+        end
+
         writedlm(f, data, ',')
     end
 end
