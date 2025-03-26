@@ -121,7 +121,7 @@ function extract_svgpath(input_str::AbstractString, outfile::String, options::Di
     # Save file
     open(outfile, "w") do f
         if header != ""
-            write(f, header_message)
+            write(f, header)
         end
 
         writedlm(f, data, ',')
